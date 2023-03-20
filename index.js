@@ -23,6 +23,12 @@ app.get('/', (req, res) => {
   res.json({ status: 'alive' });
 });
 
+setInterval(() => {
+  https.get("https://sahadan-ilkcan.onrender.com/", (res) => {
+    console.log("Server is alive...");
+  });
+}, (1000 * 60) * 5); //5min periods
+
 app.get('/options/:type', (req, res) => {
   (async () => {
     const browser = await puppeteer.launch(launchOptions);
