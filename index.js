@@ -14,9 +14,9 @@ const launchOptions = {
     '--disable-dev-shm-usage'
   ],
   //Only Debug Mode
-  /*headless: false,*/
-  /*defaultViewport: null,*/
-  /*args: ['--start-maximized'],*/
+  /*headless: false,
+  defaultViewport: null,
+  args: ['--start-maximized'],*/
 }
 
 app.get('/', (req, res) => {
@@ -76,6 +76,7 @@ app.get('/options/:day/:unplayed/league', (req,res) => {
         text: option[1]
       };
     })
+
     res.json({status: 'success', options: options })
     
     await browser.close();
@@ -171,43 +172,45 @@ app.get('/table/:day/:league/:unplayed', (req, res) => {
             }
           }
         }*/
-
-        let tmp = [
-          d[6],
-          d[26],
-          d[13],
-          d[1],
-          d[3],
-          d[11] + '-' + d[12],
-          d[8] + '-' + d[9],
-          d[16],
-          d[17],
-          d[18],
-          d[33],
-          d[34],
-          d[35],
-          d[36],
-          d[37],
-          d[38],
-          d[39],
-          d[40],
-          d[19],
-          d[20],
-          d[21],
-          d[42],
-          d[43],
-          d[44],
-          d[45],
-          d[22],
-          d[23],
-          d[46],
-          d[47],
-          d[29],
-          d[30],
-          d[31],
-          d[32],
-        ]
-        tableArr.push(tmp)
+        if(!(req.params.unplayed == "0" && d[11] == "" && d[12] == "" & d[8] == "0" && d[9] == "0")) {
+          let tmp = [
+            d[6],
+            /*d[26],
+            d[13],
+            d[1],
+            d[3],*/
+            d[11] + '-' + d[12],
+            d[8] + '-' + d[9],
+            "",
+            d[16],
+            d[17],
+            d[18],
+            d[33],
+            d[34],
+            d[35],
+            d[36],
+            d[37],
+            d[38],
+            d[39],
+            d[40],
+            d[19],
+            d[20],
+            d[21],
+            d[42],
+            d[43],
+            d[44],
+            d[45],
+            d[22],
+            d[23],
+            d[46],
+            d[47],
+            d[29],
+            d[30],
+            d[31],
+            d[32],
+          ]
+          tableArr.push(tmp)
+        }
       })
     })
 
