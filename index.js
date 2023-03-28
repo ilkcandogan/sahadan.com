@@ -182,9 +182,9 @@ app.get('/table/:day/:league/:unplayed', (req, res) => {
           let tmp = [
             d[6],
             /*d[26],
-            d[13],
+            d[13],*/
             d[1],
-            d[3],*/
+            d[3],
             d[11] + '-' + d[12],
             d[8] + '-' + d[9],
             "",
