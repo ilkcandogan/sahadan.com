@@ -104,7 +104,7 @@ app.get('/table/:day/:league/:unplayed', (req, res) => {
     const fetchData = await page.evaluate(async (day, league, unplayed) => {
       // API adresi
       const week = Mackolik.Program.currentWeek;
-      const url = "http://arsiv.sahadan.com/AjaxHandlers/ProgramDataHandler.ashx?type=6&sortValue=DATE&week=" + week + "&day=" + day + "&sort=-1&sortDir=1&groupId=" + league + "&np=" + unplayed + "&sport=1";
+      const url = "https://arsiv.sahadan.com/AjaxHandlers/ProgramDataHandler.ashx?type=6&sortValue=DATE&week=" + week + "&day=" + day + "&sort=-1&sortDir=1&groupId=" + league + "&np=" + unplayed + "&sport=1";
   
       // API'den veri al
       const response = await fetch(url);
